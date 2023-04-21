@@ -1,0 +1,48 @@
+/* Declare CSS variables */
+/*Use Javascript to manipulate these CSS variables*/
+/*Controlled from Javascript*/
+:root {
+    --amount: 10%;
+    --colour: aliceblue;
+    --conical-height: 30vh;
+  }
+
+html, body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+td{
+    vertical-align: middle;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    border:  1px dotted rgb(232,232,232);
+    max-width: 50vw;
+    max-height: 50vh;
+    width: 50vw;
+    height: 50vh;
+    margin: 0 auto;
+}
+
+.pane {
+}
+
+/*Simulation CSS*/
+#simPane{
+    margin: 0 0 0 5vw;
+    /*width: var(--conical-width);*/
+    height: var(--conical-height);
+}
+#fluid{
+    width: calc(var(--conical-height)/1.66071679389523);
+    height: var(--conical-height);
+    background: linear-gradient(to top, var(--colour) 0, var(--colour) var(--amount),black var(--amount),black calc(var(--amount) + 0.5%),white calc(var(--amount) + 0.2%), white 100%);
+}
+img{
+    /*width: var(--conical-width);*/
+    height: var(--conical-height);
+}
+
+/* white 0.5vh, var(--colour) 0.5vh, */
