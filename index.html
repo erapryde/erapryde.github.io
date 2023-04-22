@@ -12,10 +12,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
         <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/inputs.css">
+
+        
 
         <script src="js/d3.min.js"></script>
         <script src="js/database.js"></script>
-        <script src="js/main.js"></script>
             
     </head>
     <body>
@@ -25,21 +27,123 @@
         
         <table id="main">
             <tr>
+                <!--Animation Panel-->
                 <td>
+                    <div id="title">Virtual Titration Lab</div>
                     <div id="simPane" class="pane">
                             <div id="fluid">
                                 <img src="./assets_flask/flask.png" alt="">
                             </div>
+                            
                     </div>
                 </td>
+                <!--Animation Panel-->
+
+                <!--Plotting Panel-->
                 <td>
-                    <div id="plotPane" class="pane">2 plotPane</div>
+                    <div id="plotPane" class="pane">
+                        <div id="svg_container">
+
+                        </div>
+
+                        <div class="slidecontainer" style="position: absolute; bottom: 0;">                            
+                            <p style="text-align: left; padding:0 0 0 2vw; margin: 0; height: 3vh;;">Titre Volume: <u><span id="titre_volume"></span></u> cm<sup>3</sup></p>
+                            <div style="width: 50vw; justify-content: center;">
+                                <input type="range" id="slider_titre" min="0" max="100" step="0.05" value="0" class="slider">
+                            </div>
+                          </div>
+                    </div>
                 </td>
             </tr>
             <tr>
+
+                <!--Input Panel-->
                 <td>
-                    <div id="inputPane" class="pane">3 inputPane</div>
+                    <div id="inputPane" class="pane">
+
+                        <!--Case selector-->
+                        <select name="selectedcase" id="selectedcase" style="padding:5px; 
+                                border-radius: 5px;
+                                background-color: aliceblue;
+                                text-align: center;" onchange="calculateAndDraw();populatedropdowns()">
+                        <option selected="" value="wasb" style="text-align: center;">Weak acid – Strong base</option>
+                        <option value="wbsa">Weak base – Strong acid</option>
+
+                        <option value="sawb">Strong acid – Weak base</option>
+                        <option value="sbwa">Strong base – Weak acid</option>
+
+                        <option value="wawb">Weak acid – Weak base</option>
+                        <option value="wbwa">Weak base – Weak acid</option>
+
+                        <option value="sasb">Strong acid – Strong base</option>
+                        <option value="sbsa">Strong base – Strong acid</option>
+                    </select>
+
+                        <!--Variables table-->
+                        <table id="variables">
+                            <!-- Row 1 : Headers -->
+                            <tr style="height: 5vh;">
+                                <th colspan="3" style="background-color: #ccddff;">Conical Flask</th>
+                                <th colspan="3" style="background-color: #e6f36d;">Burette</th>
+                            </tr>
+
+                            <!-- Row 2 : Acid / Base selectors -->
+                            <tr style="height: 6vh;">
+                                <td colspan="3">Acid selector</td> <!--Selecton acid base-->
+                                <td colspan="3">Base selector</td>
+                            </tr>
+
+                            <!-- Row 3 : Concentrations -->
+                            <tr style="height: 6vh;">
+                                <td>[weak acid]</td>
+                                <td></td>                                
+                                <td>mol dm<sup>-3</sup></td>
+                                <td style="background-color: #e3ee80;">[weak base]</td>
+                                <td style="background-color: #e3ee80;"></td>           
+                                <td style="background-color: #e3ee80;">mol dm<sup>-3</sup></td>
+                            </tr>
+                            <!-- Row 4 : pKa + pKb -->
+                            <tr style="height: 6vh;">
+                                <td>p<span style="font-style: italic;">K</span><sub>a</sub></td>
+                                <td colspan="2">
+                                    <input type="text" id="text_conical" name="text_conical" class="input_text">
+                                </td>
+                                <td style="background-color: #f7ffac;">p<span style="font-style: italic;">K</span><sub>b</sub></td>
+                                <td colspan="2" style="background-color: #f7ffac;">
+                                    <input type="text" id="text_burette" name="text_burette" class="input_text">
+                                </td>
+                            </tr>
+                            <!-- Row 5 : Graph configurations and results -->
+                            <tr style="height: 27vh;">
+                                <td colspan="3">Volume of analyte (cm<sup>3</sup>) : <u>20.0</u> </td>
+                                <td colspan="3" style="background-color: #e3ee80; ">
+                                    <div style="text-align: left;padding: 1vh 0vh 1vh 3vh;">
+                                        Picture of burette here<br>
+                                        <input type="checkbox" id="chkbox_graph" name="chkbox_graph" value="0" onclick="">
+                                        <label for="vehicle1"> Plot graph</label><br>
+                                        
+                                        <input type="checkbox" id="chkbox_data" name="chkbox_data" value="0" onclick="">
+                                        <label for="vehicle1"> Plot data</label><br>
+                                        
+                                        <input type="checkbox" id="chkbox_values" name="chkbox_values" value="0" onclick="">
+                                        <label for="vehicle1"> Tag values</label><br>
+                                        
+                                    </div>
+                                    <div>
+                                        <button id="results">Download titration results</button>
+                                    </div>
+
+
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </td>
+                <!--Input Panel-->
+
+
+
+                <!--Teaching Panel-->
                 <td>
                     <div id="teachPane" class="pane">4 teachPane</div>
                 </td>
@@ -49,6 +153,7 @@
 
     
 
-        <script src="" async defer></script>
+        
+        <script src="js/main.js"></script>
     </body>
 </html>

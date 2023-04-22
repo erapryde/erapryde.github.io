@@ -4,16 +4,17 @@
 :root {
     --amount: 10%;
     --colour: aliceblue;
-    --conical-height: 30vh;
+    --conical-height: 35vh;
   }
 
 html, body {
     overflow: hidden;
     margin: 0;
     padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-td{
+#main td{
     vertical-align: middle;
     justify-content: center; 
     align-items: center;
@@ -26,17 +27,28 @@ td{
     margin: 0 auto;
 }
 
-.pane {
-}
 
 /*Simulation CSS*/
-#simPane{
+#simPane {
+    height: 37vh;
+    min-height: 37vh;
     margin: 0 0 0 5vw;
     /*width: var(--conical-width);*/
-    height: var(--conical-height);
+}
+#title{
+    margin: 0vh auto 5vh; 
+    background-color: aliceblue; 
+    width: 50vw;
+    height: 8vh; 
+    vertical-align: middle; 
+    line-height: 7vh; 
+    border-radius: 1vh;
+    border: 1px solid black;
+    font-size: 5vh;
+    font-weight: bold;
 }
 #fluid{
-    width: calc(var(--conical-height)/1.66071679389523);
+    width: calc(var(--conical-height)/1.53362255965293);
     height: var(--conical-height);
     background: linear-gradient(to top, var(--colour) 0, var(--colour) var(--amount),black var(--amount),black calc(var(--amount) + 0.5%),white calc(var(--amount) + 0.2%), white 100%);
 }
@@ -45,4 +57,43 @@ img{
     height: var(--conical-height);
 }
 
-/* white 0.5vh, var(--colour) 0.5vh, */
+/* Plotpane CSS */
+#plotPane{
+    height: 50vh;
+    position: relative;
+}
+#svg_container{
+    background-color: aqua;
+    height: 44vh;
+    width: 50vw;
+}
+
+/*Input CSS*/
+table {
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
+}
+#inputPane{
+    vertical-align: top; 
+    height: 50vh;
+}
+#variables th{
+    font-size: 3vh;
+    padding: 5px;
+    height: 2vh;
+    border: 1px solid black;
+}
+#variables td{
+    font-size: 1.5vh;
+    border-collapse: collapse;
+    border: 1px solid black;
+    height: auto;    
+    min-height: 2vh;
+    height: 3vh;
+    padding: 1vh;
+} 
+#variables tr:nth-child(even) {
+    background-color: rgb(223, 229, 243);
+  }
