@@ -10,7 +10,7 @@
     background-color: #abc0eb;
   }
   .input_text{
-    font-size: 1vh;
+    font-size: 2vh;
     width: 6vw;
     height: 3vh;
     background-color: azure;
@@ -40,16 +40,17 @@
     background: #04AA6D;
     cursor: pointer;
   }
-  
-  .slider::-moz-range-thumb {
+    .slider::-moz-range-thumb {
     width: 1vw;
     height: 3vh;
     background: #04AA6D;
     cursor: pointer;
   }
   #selectedcase{
+    font-size: 2vh;
     padding: 1vh;
     border-radius: 1vh;
     background-color: aliceblue;
     text-align: center;
+    margin: 1vh;
   }
